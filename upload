@@ -1,0 +1,11 @@
+#!/bin/bash
+
+for file in "$@"; do
+  url="$(curl -# -L -T "$file" "http://chunk.io")"
+  echo "$url"
+  if which pbcopy > /dev/null; then
+    echo -n "$url" | pbcopy
+  elif which xclip > /dev/null; then
+    echo -n "$url" | xclip -selection clipboard
+  fi
+done
