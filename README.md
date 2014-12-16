@@ -4,17 +4,21 @@ Ultra simple script to upload files from the command line
 
 ## Usage
 
-upload one or many files:
+syntax: `upload [file ..]`
+
 ```shell
-upload [file ..]
+# single file:
+upload file.txt
+
+# many files:
+upload file1 file2
+upload *.txt
+
+# pipe stdin:
+echo "hi there" | upload -
 ```
 
-pipe
-```shell
-cat file.txt | grep filter | upload -
-```
-
-The link is shown & copied to clipboard (using `pbcopy` or `xclip`)
+The link is shown & copied to your clipboard (using `pbcopy` or `xclip`)
 
 ## Thanks
 
