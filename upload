@@ -1,6 +1,7 @@
 #!/bin/bash
 
 for file in "$@"; do
+  echo "SHA Checksum $(shasum "$file")"
   url="$(curl -# -L -T "$file" "http://chunk.io")"
   echo "$url"
   if which pbcopy > /dev/null; then
@@ -8,4 +9,6 @@ for file in "$@"; do
   elif which xclip > /dev/null; then
     echo -n "$url" | xclip -selection clipboard
   fi
+  echo
+  sleep 1
 done
