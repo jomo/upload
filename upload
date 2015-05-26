@@ -2,7 +2,7 @@
 
 for file in "$@"; do
   echo "SHA Checksum $(shasum "$file")"
-  url="$(curl -# -L -T "$file" "http://chunk.io")"
+  url="$(curl -# -L -T "$file" "https://chunk.herokuapp.com")"
   echo "$url"
   if which pbcopy > /dev/null; then
     echo -n "$url" | pbcopy
